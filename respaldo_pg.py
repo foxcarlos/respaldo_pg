@@ -26,7 +26,7 @@ ruta = os.path.dirname(sys.argv[0])
 archivo = os.path.join(ruta, 'respaldo_pg.conf')
 fc = FileConfig(archivo)
 
-os.system(export PGPASSWORD='shc21152115')
+os.system("export PGPASSWORD='shc21152115'")
 
 def nombre_archivo():
     '''
