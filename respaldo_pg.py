@@ -21,14 +21,13 @@ import datetime
 import os
 import sys
 from rutinas.varias import *
-import subprocess
 
 ruta = os.path.dirname(sys.argv[0])
 archivo = os.path.join(ruta, 'respaldo_pg.conf')
 fc = FileConfig(archivo)
 
 #os.system("export PGPASSWORD=shc21152115")
-subprocess.call("export PGPASSWORD=shc21152115", shell=True)
+os.environ['PGPASSWORD']='shc21152115'
 
 def nombre_archivo():
     '''
