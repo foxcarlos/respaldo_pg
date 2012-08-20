@@ -83,7 +83,7 @@ def respaldo_pg():
     -h es el host o la ip del servidor
     -W password
     '''
-    comando_a_ejecutar = '%s -Ft -b -h %s %s -U %s -w > "%s"' % \
+    comando_a_ejecutar = '%s -Ft -b -h %s %s -U %s -w shc21152115 > "%s"' % \
         (comando, ipservidor, nombrebasedatos, usuariobasedatos, archivofinal)
     return comando_a_ejecutar
 
