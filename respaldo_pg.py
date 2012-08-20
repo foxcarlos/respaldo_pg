@@ -26,7 +26,7 @@ ruta = os.path.dirname(sys.argv[0])
 archivo = os.path.join(ruta, 'respaldo_pg.conf')
 fc = FileConfig(archivo)
 
-os.system("export PGPASSWORD='shc21152115'")
+os.system("export PGPASSWORD=shc21152115")
 
 def nombre_archivo():
     '''
@@ -84,7 +84,7 @@ def respaldo_pg():
     -h es el host o la ip del servidor
     -W password
     '''
-    comando_a_ejecutar = '%s -Ft -b -h %s %s -U %s > "%s"' % \
+    comando_a_ejecutar = '%s -Ft -b -h %s %s -U %s se corrigio la linea de comando ya que aun contenia la opcion -w clave > "%s"' % \
         (comando, ipservidor, nombrebasedatos, usuariobasedatos, archivofinal)
     return comando_a_ejecutar
 
