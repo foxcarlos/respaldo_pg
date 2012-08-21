@@ -72,7 +72,7 @@ def respaldo_pg():
     nombrearchivo = valores[4][1]
    
     archivofinal = os.path.join(rutarespaldo, nombrearchivo + \
-    nombre_archivo() + '.tar')
+    nombre_archivo() + '')
     comando = 'pg_dump'
 
     '''
