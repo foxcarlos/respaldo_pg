@@ -84,7 +84,7 @@ def respaldo_pg():
     -h es el host o la ip del servidor
     -W password
     '''
-    comando_a_ejecutar = '%s -Ft -b -h %s %s -U %s > "%s"' % \
+    comando_a_ejecutar = '%s -Fc -b -h %s %s -U %s > "%s"' % \
         (comando, ipservidor, nombrebasedatos, usuariobasedatos, archivofinal)
     return comando_a_ejecutar
 
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     print 'Espere un momento ejecutando Proceso de Respaldo...'
     respaldar = respaldo_pg()
     print respaldar
-    os.system(respaldar)
+    #os.system(respaldar)
     print '*** Respaldo Realizado con Exito ***'
 
     
