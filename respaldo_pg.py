@@ -92,7 +92,7 @@ if __name__ == '__main__':
     print 'Espere un momento ejecutando Proceso de Respaldo...'
     respaldar = respaldo_pg()
     print respaldar
-    #os.system(respaldar)
+    os.system(respaldar)
     print '*** Respaldo Realizado con Exito ***'
 
     
