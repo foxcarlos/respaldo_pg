@@ -46,3 +46,4 @@ def restaura(fecha_a_restaurar):
 
 if __name__ == '__main__':
     restaura('23')
+    os.system('unset PGPASSWORD')
