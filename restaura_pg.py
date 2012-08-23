@@ -35,8 +35,7 @@ def restaura(fecha_a_restaurar):
     rutarespaldo, nombrearchivo, clave = \
             fc.opcion_consultar('POSTGRESQL')
     
-    print nombrearchivo
-    nombre_archivo =  nombrearchivo + fecha_a_restaurar + '_.sql' 
+    nombre_archivo =  nombrearchivo[1] + fecha_a_restaurar + '_.sql' 
     ruta_y_archivo = os.path.join(rutarespaldo,nombre_archivo)
     #comando = 'pg_restore -d %s -U %s ' % (nombrebasededatos, usuariobasededatos, nombre_archivo)
     #pg_restore -i -h localhost -p 5432 -U postgres -d mibase -v "/home/damian/backups/mibase.backup"
