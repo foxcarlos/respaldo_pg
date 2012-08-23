@@ -16,7 +16,7 @@ Para Restaurar la Base de Datos:
 pg_restore -d db -U postgres db.tar
 '''
 
-import time
+
 import datetime
 import os
 import sys
@@ -26,7 +26,8 @@ ruta = os.path.dirname(sys.argv[0])
 archivo = os.path.join(ruta, 'respaldo_pg.conf')
 fc = FileConfig(archivo)
 
-os.environ['PGPASSWORD']='shc21152115'
+os.environ['PGPASSWORD'] = 'shc21152115'
+
 
 def nombre_archivo():
     '''
@@ -63,15 +64,15 @@ def respaldo_pg():
     '''
 
     valores = fc.opcion_consultar('POSTGRESQL')
-    
+
     ipservidor = valores[0][1]
     nombrebasedatos = valores[1][1]
     usuariobasedatos = valores[2][1]
-    rutarespaldo =  valores[3][1]
+    rutarespaldo = valores[3][1]
     #rutarespaldo = os.path.dirname(sys.argv[0])
     nombrearchivo = valores[4][1]
-   
-    archivofinal = os.path.join(rutarespaldo, nombrearchivo + \
+
+    archivofinal = os.path.join(rutarespaldo, nombrearchivo + \ 
     nombre_archivo() + '.sql')
     comando = 'pg_dump'
 
@@ -94,5 +95,3 @@ if __name__ == '__main__':
     print respaldar
     os.system(respaldar)
     print '*** Respaldo Realizado con Exito ***'
-
-    
