@@ -42,6 +42,7 @@ def restaura(fecha_a_restaurar):
     comando_a_ejecutar = 'pg_restore -i -h %s -U %s -d %s -v "%s" ' %\
             (ipservidor[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
     print comando_a_ejecutar
+    os.system(comando_a_ejecutar)
 
 if __name__ == '__main__':
     restaura('23')
