@@ -27,7 +27,8 @@ fc = FileConfig(archivo)
 
 ipservidor, nombrebasedatos, usuariobasedatos,\
         rutarespaldo, nombrearchivo,\
-        clave = fc.opcion_consultar('POSTGRESQL')
+        clave, ipserv_resp_pg = fc.opcion_consultar('POSTGRESQL')
+
 os.environ['PGPASSWORD'] = clave[1]
 
 
