@@ -31,7 +31,7 @@ def restaura(fecha_a_restaurar):
     string fecha
     '''
 
-    ipservidor, nombrebasedatos, usuariobasedatos,
+    ipservidor, nombrebasedatos, usuariobasedatos,\
     rutarespaldo, nombrearchivo, clave = \
             fc.opcion_consultar('POSTGRESQL')
     nombre_archivo = os.path.join(rutarespaldo, nombrearchivo + fecha_a_restaurar + '_.sql')
