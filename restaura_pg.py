@@ -39,7 +39,7 @@ def restaura(fecha_a_restaurar):
     ruta_y_archivo = os.path.join(rutarespaldo[1], nombre_archivo)
     #comando = 'pg_restore -d %s -U %s ' % (nombrebasededatos, usuariobasededatos, nombre_archivo)
     #pg_restore -i -h localhost -p 5432 -U postgres -d mibase -v "/home/damian/backups/mibase.backup"
-    comando_a_ejecutar = 'pg_restore -i -h %s -U %s -d %s -v %s ' %\
+    comando_a_ejecutar = 'pg_restore -i -h %s -U %s -d %s -v "%s" ' %\
             (ipservidor[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
     print comando_a_ejecutar
 
