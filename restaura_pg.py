@@ -16,6 +16,7 @@ Para Restaurar la Base de Datos:
 pg_restore -d db -U postgres db.sql
 '''
 
+import datetime
 import os
 import sys
 from rutinas.varias import *
@@ -46,5 +47,5 @@ def restaura(fecha_a_restaurar):
     os.system(comando_a_ejecutar)
 
 if __name__ == '__main__':
-    restaura('23')
+    restaura(str(datetime.date.today().day))
     os.system('unset PGPASSWORD')
