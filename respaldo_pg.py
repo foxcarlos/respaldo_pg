@@ -72,8 +72,7 @@ def respaldo_pg():
     #rutarespaldo = os.path.dirname(sys.argv[0])
     nombrearchivo = valores[4][1]
 
-    archivofinal = os.path.join(rutarespaldo, nombrearchivo + \ 
-    nombre_archivo() + '.sql')
+    archivofinal = os.path.join(rutarespaldo, nombrearchivo + nombre_archivo() + '.sql')
     comando = 'pg_dump'
 
     '''
