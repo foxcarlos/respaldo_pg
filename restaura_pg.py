@@ -28,7 +28,7 @@ fc = FileConfig(archivo)
 
 ipservidor, nombrebasedatos, usuariobasedatos,\
         rutarespaldo, nombrearchivo,\
-        clave, ipserv_resp_pg = fc.opcion_consultar('POSTGRESQL')
+        clave, puerto = fc.opcion_consultar('POSTGRESQL_RESPALDO')
 
 os.environ['PGPASSWORD'] = clave[1]
 
@@ -39,12 +39,22 @@ def restaura(fecha_a_restaurar):
     '''
     nombre_archivo = nombrearchivo[1] + fecha_a_restaurar + '_.sql'
     ruta_y_archivo = os.path.join(rutarespaldo[1], nombre_archivo)
-    #comando = 'pg_restore -d %s -U %s ' % (nombrebasededatos, usuariobasededatos, nombre_archivo)
-    #pg_restore -i -h localhost -p 5432 -U postgres -d mibase -v "/home/damian/backups/mibase.backup"
-    comando_a_ejecutar = 'pg_restore -i -h %s -U %s -d %s -v "%s" ' %\
-            (ipserv_resp_pg[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
-    print comando_a_ejecutar
-    os.system(comando_a_ejecutar)
+    #pg_restore -i -h localhost -p 5432 -U postgres -d mibase -v "/home/fox/backups/mibase.sql"
+    
+    eliminar_bd =   'dropdb  -h %s -p %s -U %s  %s' %\
+        (ipservidor[1], puerto[1], usuariobasedatos[1], nombrebasedatos[1])
+    
+    restaurar_bd = 'pg_restore -i -h %s -U %s -d %s -v "%s" ' %\
+            (ipservidor[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
+    
+    try:
+        print eliminar_bd
+        #os.system(eliminar_bd)
+        print restaurar_bd
+        #os.system(restaurar_bd)
+    except:
+        print "Ocurrio un error al momento de Restaurar la Base de datos"
+
 
 if __name__ == '__main__':
     restaura(str(datetime.date.today().day))
