@@ -1,4 +1,4 @@
- #!/usr/bin/env python
+#!/usr/bin/env python
 
 '''
 Creado el 23/08/2012
@@ -40,16 +40,21 @@ def restaura(fecha_a_restaurar):
     nombre_archivo = nombrearchivo[1] + fecha_a_restaurar + '_.sql'
     ruta_y_archivo = os.path.join(rutarespaldo[1], nombre_archivo)
     #pg_restore -i -h localhost -p 5432 -U postgres -d mibase -v "/home/fox/backups/mibase.sql"
-    
+
     eliminar_bd =   'dropdb  -h %s -p %s -U %s  %s' %\
-        (ipservidor[1], puerto[1], usuariobasedatos[1], nombrebasedatos[1])
-    
-    restaurar_bd = 'pg_restore -i -h %s -U %s -d %s -v "%s" ' %\
-            (ipservidor[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
+            (ipservidor[1], puerto[1], usuariobasedatos[1], nombrebasedatos[1])
+
+    #crear_bd = 'createdb -E UTF8 -O admhc -h 10.121.3.31 -p 5434 -U admhc nombrebasedatos'
+    crear_bd = 'createdb -O %s -h %s -p %s -U %s %s' %\
+            (usuariobasedatos[1], ipservidor[1], puerto[1], usuariobasedatos[1], nombrebasedatos[1])
+
+    restaurar_bd = 'pg_restore -i -h %s -p %s -U %s -d %s -v "%s" ' %\
+            (ipservidor[1], puerto[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
     
     try:
         print eliminar_bd
         #os.system(eliminar_bd)
+        print crear_bd
         print restaurar_bd
         #os.system(restaurar_bd)
     except:
