@@ -53,10 +53,11 @@ def restaura(fecha_a_restaurar):
     
     try:
         print eliminar_bd
-        #os.system(eliminar_bd)
+        os.system(eliminar_bd)
         print crear_bd
+        os.system(crear_bd)
         print restaurar_bd
-        #os.system(restaurar_bd)
+        os.system(restaurar_bd)
     except:
         print "Ocurrio un error al momento de Restaurar la Base de datos"
 
