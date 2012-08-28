@@ -63,5 +63,6 @@ def restaura(fecha_a_restaurar):
 
 
 if __name__ == '__main__':
-    restaura(str(datetime.date.today().day))
+    #Day-1 Porque desde restaurar el respaldo del dia anterior
+    restaura(str(datetime.date.today().day-1))
     os.system('unset PGPASSWORD')
