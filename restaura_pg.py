@@ -13,6 +13,10 @@ acerca de los parametros necesario para poder realizar el respaldo y restore
 de la Base de Datos
 
 Este archivo se ejecuta de la siguiente manera:
+$ python restaura_pg.py 28 # si se desea restaurar el respaldo del dia 28 
+
+Si solo desea restaurar el respaldo del  dia anterior entonces se ejecuta
+sin pasarle ningun parametro.
 $ python restaura_pg.py
 
 NOTA:La biblioteca "from rutinas.varias import * debe estar contenida dentro del
