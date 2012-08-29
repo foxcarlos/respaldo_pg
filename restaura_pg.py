@@ -78,9 +78,8 @@ def main(opcion):
         fecha = str(datetime.date.today().day - 1) 
     else:
         fecha = opcion
-
-    print fecha
-    restaurar(fecha)
+    
+    restaura(fecha)
 
 
 if __name__ == '__main__':
