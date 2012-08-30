@@ -59,15 +59,14 @@ def restaura(fecha_a_restaurar):
         restaurar_bd = 'pg_restore -i -h %s -p %s -U %s -d %s -v "%s" ' %\
         (ipservidor[1], puerto[1], usuariobasedatos[1], nombrebasedatos[1], ruta_y_archivo)
         try:
-            '''
             print eliminar_bd
             os.system(eliminar_bd)
             print crear_bd
             os.system(crear_bd)
             print restaurar_bd
-            os.system(restaurar_bd)
-            '''
-            print 'mv %s %s' % (ruta_y_archivo, ruta_y_archivo + '.log')
+            os.system(restaurar_bd)            
+            cmd_mover = 'mv %s  %s' % (ruta_y_archivo, ruta_y_archivo + '.log')
+            os.system(cmd_mover)
         except:
             print "Ocurrio un error al momento de Restaurar la Base de datos"
     else:
