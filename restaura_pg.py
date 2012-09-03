@@ -84,7 +84,8 @@ def main(opcion):
     
     if len(opcion) <= 0:
         print "No se paso ningun parametro, se tomara como respaldo el dia anterior"
-        fecha = str(datetime.date.today().day - 1) 
+        fec_str = str(datetime.date.today().day - 1)
+        fecha = '0' + fec_str if len(fec_str) < 2 else fec_str
     else:
         fecha = opcion
     
