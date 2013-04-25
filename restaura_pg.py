@@ -66,7 +66,7 @@ def restaura(fecha_a_restaurar):
             print restaurar_bd
             os.system(restaurar_bd)            
             #Luego de terminar de restaurar la base de datos se renombra el archivo
-            #Colocandole un .log al final, de esta manera se reconocera que ya se realizo
+            #Colocandole un .reaady al final, de esta manera se reconocera que ya se realizo
             cmd_mover = 'mv %s  %s' % (ruta_y_archivo, ruta_y_archivo + '.ready')
             os.system(cmd_mover)
         except:
