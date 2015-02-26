@@ -106,7 +106,10 @@ if __name__ == '__main__':
     if parametroPasado == 'TARDE':
         devuelto = serv_resp_tarde()
         print(devuelto, datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S'))
-        comando = subprocess.Popen(devuelto.split(), stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+        try:
+	    comando = subprocess.Popen(devuelto.split(), stdin=subprocess.PIPE, stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+	except IOError as e:
+	    print "Error({0}): {1}".format(e.errno, e.strerror)
 
     elif parametroPasado == 'NOCHE':
         devuelto = serv_resp_noche()
